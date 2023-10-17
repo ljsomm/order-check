@@ -1,0 +1,32 @@
+<div *ngFor="let payer of payers">
+  <div style="padding-top: 10px;" *ngIf="!!payer.isEditing; else elseBlock">
+    <mat-form-field  class="full-width-input">
+      <mat-label>Payer Name</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Insert the Payer Name"
+        [(ngModel)]="payer.name"
+      />
+    </mat-form-field>
+    <button mat-icon-button color="primary" (click)="changeIsEditing(payer)">
+      <mat-icon>done</mat-icon>
+    </button>
+  </div>
+  <ng-template #elseBlock>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          teste
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button>+</button>
+    </mat-expansion-panel>
+  </ng-template>
+</div>
+
+<div class="centralizer">
+  <button mat-fab color="primary" (click)="addPayer()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

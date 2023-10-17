@@ -1,0 +1,14 @@
+:host {
+  .centralizer {
+    display: flex;
+    justify-content: end;
+    padding: 0px 15px 25px 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+  .full-width-input {
+    width: 80%;
+  }
+}
