@@ -12,12 +12,21 @@ export class HomeScreen {
   public payers: (IPayer & { isEditing?: boolean })[] = [];
 
   public addPayer(): void {
-    this.payers.push({ name: '', isEditing: true });
+    this.payers.push({ name: '', isEditing: true, items: [] });
   }
 
   public changeIsEditing(
     payer:  (IPayer & { isEditing?: boolean })
   ) {
     payer.isEditing = !payer.isEditing;
+  }
+
+  public addItem(
+    payer:  (IPayer & { isEditing?: boolean })
+    // index: number
+  ) {
+    payer.items?.push({price: 0})
+    console.log(payer);
+    // this.payers[index].items?.push({price: 0})
   }
 }

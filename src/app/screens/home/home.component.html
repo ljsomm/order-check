@@ -1,6 +1,6 @@
 
 <h2>Payers</h2>
-<div style="padding: 10px 0;" *ngFor="let payer of payers">
+<div style="padding: 10px 0; display: flex;" *ngFor="let payer of payers">
   <div *ngIf="!!payer.isEditing; else elseBlock">
     <mat-form-field class="full-width-input">
       <mat-label>Payer Name</mat-label>
@@ -18,13 +18,20 @@
   <ng-template #elseBlock>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>
+        <mat-panel-title style="font-size: 17.5px">
           {{payer.name}}
         </mat-panel-title>
       </mat-expansion-panel-header>
       <h4>Items</h4>
-      <button mat-icon-button>
+      <div *ngFor="let item of payer.items">
+        <mat-form-field style="width: 50%;">
+          <mat-label>Price</mat-label>
+          <input placeholder="Price" matInput type="text"/>
+        </mat-form-field>
+      </div>
+      <button (click)="addItem(payer)" mat-flat-button>
         <mat-icon>add</mat-icon>
+        Add Item
       </button>
     </mat-expansion-panel>
   </ng-template>
