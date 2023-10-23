@@ -11,3 +11,5 @@ Use case: 3 Friends went to a restaurant and they were thinking to split the che
   <li>Angular Material UI</li>
   <li>SCSS</li>
 </ul>
+
+<p>You can check this app running <a href="https://order-check.vercel.app/">here</a></p>
