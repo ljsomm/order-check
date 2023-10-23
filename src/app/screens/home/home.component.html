@@ -1,6 +1,6 @@
 
 <h2>Payers</h2>
-<div style="padding: 10px 0; display: flex;" *ngFor="let payer of payers">
+<div style="padding: 10px 0;" *ngFor="let payer of payers">
   <div *ngIf="!!payer.isEditing; else elseBlock">
     <mat-form-field class="full-width-input">
       <mat-label>Payer Name</mat-label>
@@ -23,10 +23,14 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <h4>Items</h4>
-      <div *ngFor="let item of payer.items">
-        <mat-form-field style="width: 50%;">
+      <div style="display: flex; justify-content: space-between;" *ngFor="let item of payer.items">
+        <mat-form-field style="width: 45%;">
           <mat-label>Price</mat-label>
-          <input placeholder="Price" matInput type="text"/>
+          <input (keyup)="updateTotal()" placeholder="Insert the price" [(ngModel)]="item.price" matInput type="number"/>
+        </mat-form-field>
+        <mat-form-field style="width: 45%;">
+          <mat-label>Quantity</mat-label>
+          <input (keyup)="updateTotal()" placeholder="Insert the price" [(ngModel)]="item.quantity" matInput type="number"/>
         </mat-form-field>
       </div>
       <button (click)="addItem(payer)" mat-flat-button>
@@ -38,6 +42,9 @@
 </div>
 
 <div class="centralizer">
+  <b>
+    Total: {{total}}
+  </b>
   <button mat-fab color="primary" (click)="addPayer()">
     <mat-icon>add</mat-icon>
   </button>

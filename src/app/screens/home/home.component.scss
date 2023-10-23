@@ -1,11 +1,22 @@
 :host {
   .centralizer {
     display: flex;
-    justify-content: end;
-    padding: 0px 15px 25px 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 25px 15px;
     position: fixed;
     bottom: 0;
-    right: 0;
+    box-sizing: border-box;
+    background-color: rgb(246, 246, 246);
+    left: 0;
+    z-index: 10;
+
+    b {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+    }
   }
 
   .full-width-input {
